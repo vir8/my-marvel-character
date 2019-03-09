@@ -36,7 +36,7 @@ exports.find=(function(req,res){
     let r={
 
      "fulfillmentText":response1,
-     "fulfillmentMessages":[{"text":{"text": speech}}],
+     "fulfillmentMessages":[{"text":{"text": [speech]}}],
      "source":""
 
     };
