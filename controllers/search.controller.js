@@ -11,8 +11,8 @@ exports.find=(function(req,res){
  
  // the api deals a lot in ids rather than just the strings you want to use
  var charName = req.body.queryResult.parameters.charName
-   ? req.body.queryResult.parameters.charName
-   : "Deadpool"; //Not from DC                                                                   
+   ? req.body.queryResult.parameters.charName:
+  "Deadpool"; //Not from DC                                                                   
 
 
  var url = 'http://gateway.marvel.com:80/v1/public/characters';
@@ -28,12 +28,17 @@ exports.find=(function(req,res){
     var speech="Here is some description about "+name+". "+desc;
     if(response.data.results[0].description == null)
         {
-            var speech="You did an oopsie. Please try again.";
+            speech="You did an oopsie. Please try again.";
         }
       
        console.log(desc);
-    var r={
-     "fulfillment":{"speech":speech}
+       let response1=" ";
+    let r={
+
+     "fulfillmentText":response1,
+     "fulfillmentMessages":[{"text":{"text": speech}}],
+     "source":""
+
     };
       return res.json(r);
     
