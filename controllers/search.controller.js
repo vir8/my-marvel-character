@@ -10,11 +10,9 @@ exports.find=(function(req,res){
  var hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
  
  // the api deals a lot in ids rather than just the strings you want to use
- var charName = req.body.result &&
- req.body.result.parameters &&
- req.body.result.parameters.charName
-   ? req.body.result.parameters.charName
-   : "Deadpool";;                                                                            
+ var charName = req.body.queryResult.parameters.charName
+   ? req.body.queryResult.parameters.charName
+   : "Deadpool"; //Not from DC                                                                   
 
 
  var url = 'http://gateway.marvel.com:80/v1/public/characters';
@@ -34,9 +32,10 @@ exports.find=(function(req,res){
         }
       
        console.log(desc);
-      return res.json({speech: speech,
-        displayText: speech,
-        source: "webhook-vir"});
+    var r={
+     "fulfillment":{"speech":speech}
+    };
+      return res.json(r);
     
    });
 
