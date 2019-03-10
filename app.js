@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req,res,next) => {
+/*app.use((req,res,next) => {
     console.log('in app');
         res.header("Access-Control-Allow-Origin","*");
         res.header("Access-Control-Allow-Methods", "POST, GET,PUT,DELETE,OPTIONS");
@@ -31,7 +31,7 @@ app.use((req,res,next) => {
     
     });
 
-
+*/
 
 app.use('/', indexRouter);
 app.use('/api',apiRouter);
