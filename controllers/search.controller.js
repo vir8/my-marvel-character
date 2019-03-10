@@ -23,13 +23,25 @@ exports.find=(function(req,res){
        console.log(error);
        //console.log(response);
        console.log(response);
+    console.log(response);
+    if(!response.data.results[0])
+        {
+            speech="The character is not recognised please try again.";
+            let r={
+
+              "fulfillmentText":speech,
+              "fulfillmentMessages":[{"text":{"text": [speech]}}],
+              "source":""
+         
+             };
+               return res.json(r);
+
+        }
+  else{
     var name=response.data.results[0].name;
     var desc=response.data.results[0].description;
     var speech="Here is some description about "+name+". "+desc;
-    if(response.data.results[0].description == null)
-        {
-            speech="You did an oopsie. Please try again.";
-        }
+    
       
        console.log(desc);
        let response1=" ";
@@ -41,7 +53,7 @@ exports.find=(function(req,res){
 
     };
       return res.json(r);
-    
+  }
    });
 
 });
