@@ -48,9 +48,7 @@ exports.find=(function(req,res){
     let r={
 
      "fulfillmentText":speech,
-     "fulfillmentMessages":[ {
-       "text":{"text":[speech]},
-       "card": {
+     "fulfillmentMessages":[ {"card": {
       "title": name,
       "subtitle": "",
       "imageUri": img,
