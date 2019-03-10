@@ -40,7 +40,7 @@ exports.find=(function(req,res){
   else{
     var name=response.data.results[0].name;
     var desc=response.data.results[0].description;
-    var speech="Here is some description about "+name+". "+desc;
+    var speech=/*"Here is some description about "+name+". "+*/desc;
     var img=response.data.results[0].thumbnail.path + "." +response.data.results[0].thumbnail.extension;
     var profile="";
     for(var t in response.data.results[0].urls){
