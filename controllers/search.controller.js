@@ -48,7 +48,7 @@ exports.find=(function(req,res){
     let r={
 
      "fulfillmentText":speech,
-     "fulfillmentMessages":[ {"card": {
+     "fulfillmentMessages":[ /* {"card": {
       "title": name,
       "subtitle": "",
       "imageUri": img,
@@ -60,7 +60,7 @@ exports.find=(function(req,res){
       ]
      
      }
-  }],
+  }*/],
      "source":"https://my-marvel-api.herokuapp.com/api/search"
 
     };
