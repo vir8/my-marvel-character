@@ -66,7 +66,7 @@ exports.find=(function(req,res){
     };
 
     let s={
-      {
+      
         "payload": {
           "google": {
             "expectUserResponse": true,
