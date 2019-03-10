@@ -11,7 +11,7 @@ exports.find=(function(req,res){
  
  // the api deals a lot in ids rather than just the strings you want to use
  var charName = req.body.queryResult.parameters.charName
-   ? req.body.queryResult.parameters.charName:
+  ? req.body.queryResult.parameters.charName:
   "Deadpool"; //Not from DC                                                                   
 
 
@@ -42,9 +42,14 @@ exports.find=(function(req,res){
     var desc=response.data.results[0].description;
     var speech="Here is some description about "+name+". "+desc;
     var img=response.data.results[0].thumbnail.path + "." +response.data.results[0].thumbnail.extension;
+    var profile="";
+    for(var t in response.data.results[0].urls){
+    if(response.data.results[0].urls[t].type =="wiki")
+    profile=response.data.results[0].urls[t].url;
+    console.log(t);
+    }
       
-       console.log(desc);
-       let response1=" ";
+      
     let r={
 
      "fulfillmentText":speech,
@@ -74,23 +79,23 @@ exports.find=(function(req,res){
               "items": [
                 {
                   "simpleResponse": {
-                    "textToSpeech": "This is a basic card example."
+                    "textToSpeech": "Here is some description about "+name + "."
                   }
                 },
                 {
                   "basicCard": {
-                    "title": "Title: this is a title",
-                    "subtitle": "This is a subtitle",
-                    "formattedText": "This is a basic card.  Text in a basic card can include \"quotes\" and\n        most other unicode characters including emoji 📱.  Basic cards also support\n        some markdown formatting like *emphasis* or _italics_, **strong** or\n        __bold__, and ***bold itallic*** or ___strong emphasis___ as well as other\n        things like line  \nbreaks",
+                    "title": name,
+                    "subtitle": "_Information found on Marvel_",
+                    "formattedText": speech,
                     "image": {
-                      "url": "https://example.com/image.png",
-                      "accessibilityText": "Image alternate text"
+                      "url": img,
+                      "accessibilityText": "MARVEL"
                     },
                     "buttons": [
                       {
-                        "title": "This is a button",
+                        "title": "Wiki",
                         "openUrlAction": {
-                          "url": "https://assistant.google.com/"
+                          "url": profile
                         }
                       }
                     ],
@@ -107,4 +112,23 @@ exports.find=(function(req,res){
    });
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
