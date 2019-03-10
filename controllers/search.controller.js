@@ -79,13 +79,13 @@ exports.find=(function(req,res){
               "items": [
                 {
                   "simpleResponse": {
-                    "textToSpeech": "Here is some description about "+name + "."
+                    "textToSpeech": "Here is some description about "+name + ". "+desc
                   }
                 },
                 {
                   "basicCard": {
                     "title": name,
-                    "subtitle": "_Information found on Marvel_",
+                    "subtitle": "Information found on Marvel",
                     "formattedText": speech,
                     "image": {
                       "url": img,
