@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use((req,res,next) => {
     console.log('in app');
         res.header("Access-Control-Allow-Origin","*");
-        res.header("Access-Control-Allow-Methods", "POST");
+        res.header("Access-Control-Allow-Methods", "POST,GET");
         res.header("Access-Control-Allow-Header","Content-Type, Authorization, Content-Length, X-Requested-With,Origin, Accept");
          //intercepts OPTIONS method
          if ('OPTIONS' === req.method) {
