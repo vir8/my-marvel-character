@@ -41,14 +41,20 @@ exports.find=(function(req,res){
     var name=response.data.results[0].name;
     var desc=response.data.results[0].description;
     var speech="Here is some description about "+name+". "+desc;
-    
+    var img=response.data.results[0].thumbnail.path + "." +response.data.results[0].thumbnail.extension;
       
        console.log(desc);
        let response1=" ";
     let r={
 
      "fulfillmentText":speech,
-     "fulfillmentMessages":[{"text":{"text": [speech]}}],
+     "fulfillmentMessages":[ {"card": {
+      "title": name,
+      "subtitle": "",
+      "imageUri": img,
+     
+     }
+  }],
      "source":""
 
     };
