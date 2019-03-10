@@ -52,6 +52,12 @@ exports.find=(function(req,res){
       "title": name,
       "subtitle": "",
       "imageUri": img,
+      "buttons": [
+        {
+          "text": "button text",
+          "postback": "https://assistant.google.com/"
+        }
+      ]
      
      }
   }],
