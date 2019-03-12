@@ -74,7 +74,7 @@ exports.find=(function(req,res){
       
         "payload": {
           "google": {
-            "expectUserResponse": true,
+            "expectUserResponse": false,
             "richResponse": {
               "items": [
                 {
