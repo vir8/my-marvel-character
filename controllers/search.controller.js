@@ -15,7 +15,7 @@ exports.find=(function(req,res){
   "Deadpool"; //Not from DC                                                                   
 
 
- var url = 'http://gateway.marvel.com:80/v1/public/characters';
+ var url = 'http://gateway.marvel.com/v1/public/characters';
    url=url+"?nameStartsWith="+charName+"&ts="+ts+"&apikey="+PUBLIC_KEY+"&hash="+hash;
  console.log(url);
  getJSON(url,function(error,response){
