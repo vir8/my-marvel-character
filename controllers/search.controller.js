@@ -1,5 +1,5 @@
-var PRIV_KEY = "f4ce1346ede83a3066788d456b91e8e26b41c680";//"this-should-be-a-long-hash";
-var PUBLIC_KEY = "18315cca54033e51b88c61c51ca3e3a4";//"so-should-this";
+var PRIV_KEY = process.env.PRIV_KEY;//"this-should-be-a-long-hash";
+var PUBLIC_KEY =process.env.PUBLIC_KEY;//"so-should-this";
 var CryptoJS=require('crypto-js');
 var getJSON = require('get-json')
 
@@ -49,7 +49,7 @@ exports.find=(function(req,res){
     console.log(t);
     }
       
-      
+      //only text response
     let r={
 
      "fulfillmentText":speech,
@@ -69,7 +69,7 @@ exports.find=(function(req,res){
      "source":"https://my-marvel-api.herokuapp.com/api/search"
 
     };
-
+    //card response with image and link
     let s={
       
         "payload": {
